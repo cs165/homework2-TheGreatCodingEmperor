@@ -113,7 +113,7 @@ function addRestart(){
     contents.remove();
     restartButton.remove();
     restart = true;
-    var top = document.querySelector(".question-name").children;
-    top[0].scrollIntoView({behavior:"smooth"});
+    var top = document.querySelector(".question-name");
+    top.scrollIntoView({behavior:"smooth"});
   });
 }
