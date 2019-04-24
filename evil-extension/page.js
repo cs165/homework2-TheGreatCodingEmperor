@@ -12,6 +12,7 @@ const MATCH_LIST = {
 
 function transformTextNodes(node) {
   // TODO(you): Implement this function! See HW spec for details.
+
 }
 
 transformTextNodes(document.body);

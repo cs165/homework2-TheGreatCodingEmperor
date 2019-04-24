@@ -5,6 +5,7 @@ const question_one = document.querySelectorAll('div[data-question-id="one"]');
 const question_two = document.querySelectorAll('div[data-question-id="two"]');
 const question_three = document.querySelectorAll('div[data-question-id="three"]');
 var check ={one:false , two:false ,three:false }
+var answerCheck={one:'none', two:'none', three:'none'}
 var answer;
 var restart=true;
 var answerBox = document.createElement('div');
@@ -46,12 +47,10 @@ function select(q,question){
 
   let questionId = q.dataset.questionId;
   check[questionId]=true;
-
-  if(questionId==='one')answer= q.dataset.choiceId;
+  answerCheck[questionId]= q.dataset.choiceId
 
   if(check['one']&&check['two']&&check['three']){
     removeAllListener();
-    console.log("final answer: "+answer);
     printAnswer();
     return;
   }
@@ -73,6 +72,16 @@ function removeListener(question){
 function printAnswer(){
   var title = document.querySelector('.title');
   var contents = document.querySelector('.contents');
+  var score ={'blep':{name:'blep',value:0}, 'happy':{name:'happy',value:0}, 'sleeping':{name:'sleeping',value:0}, 'dopey':{name:'dopey',value:0}, 'burger':{name:'burger',value:0}, 'cart':{name:'cart',value:0}, 'nerd':{name:'nerd',value:0}, 'shy':{name:'shy',value:0}, 'sleepy':{name:'sleepy',value:0}}
+  score[answerCheck['one']].value++;
+  score[answerCheck['two']].value++;
+  score[answerCheck['three']].value++;
+  answer=answerCheck['one'];
+  for(let i=0;i<score.length;i++){
+    if(score[i].value>score[answer].value)answer=i.name;
+    score[i].value=0;
+  }
+  console.log("final answer: "+answer);
   title.innerHTML=RESULTS_MAP[answer].title;
   contents.innerHTML=RESULTS_MAP[answer].contents;
 }
