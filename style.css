@@ -4,6 +4,9 @@
   article {
     width: 95%;
   }
+  header > div{
+    display: none;
+  }
 }
 
 .choice-grid{
@@ -41,9 +44,6 @@
 @media only screen and (max-width: 500px){
   .choice-grid > div{
     width: 49%;
-  }
-  header > div{
-    display: none;
   }
 }
 .choice-grid > div > img{
