@@ -79,6 +79,8 @@ function printAnswer(){
   answer=answerCheck['one'];
   for(let i in score){
     if(score[i]>score[answer])answer=i;
+  }
+  for(let i in score){
     score[i]=0;
   }
   console.log("final answer: "+answer);
