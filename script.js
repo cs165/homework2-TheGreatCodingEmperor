@@ -72,14 +72,14 @@ function removeListener(question){
 function printAnswer(){
   var title = document.querySelector('.title');
   var contents = document.querySelector('.contents');
-  var score ={'blep':{name:'blep',value:0}, 'happy':{name:'happy',value:0}, 'sleeping':{name:'sleeping',value:0}, 'dopey':{name:'dopey',value:0}, 'burger':{name:'burger',value:0}, 'cart':{name:'cart',value:0}, 'nerd':{name:'nerd',value:0}, 'shy':{name:'shy',value:0}, 'sleepy':{name:'sleepy',value:0}}
-  score[answerCheck['one']].value++;
-  score[answerCheck['two']].value++;
-  score[answerCheck['three']].value++;
+  var score ={'blep':0, 'happy':0, 'sleeping':0, 'dopey':0, 'burger':0, 'cart':0, 'nerd':0, 'shy':0, 'sleepy':0}
+  score[answerCheck['one']]++;
+  score[answerCheck['two']]++;
+  score[answerCheck['three']]++;
   answer=answerCheck['one'];
-  for(let i=0;i<score.length;i++){
-    if(score[i].value>score[answer].value)answer=i.name;
-    score[i].value=0;
+  for(let i in score){
+    if(score[i]>score[answer])answer=i;
+    score[i]=0;
   }
   console.log("final answer: "+answer);
   title.innerHTML=RESULTS_MAP[answer].title;
