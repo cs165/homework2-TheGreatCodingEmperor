@@ -21,12 +21,12 @@ function transformTextNodes(node) {
       var text = allNode[n].textContent;
       for(let t in MATCH_LIST){
            var reg =  new RegExp(t+'(,)','g');
-             text=text.replace(reg,MATCH_LIST[t]+"&,");
+             text=text.replace(reg,MATCH_LIST[t]+"&Z@%,");
            reg = new RegExp('(,)'+t+'($)','g');
-             text=text.replace(reg,","+MATCH_LIST[t]+"&");
+             text=text.replace(reg,","+MATCH_LIST[t]+"&Z@%");
       }
-      text=text.replace("&","");
-      text=text.replace("&","");
+      var reg =  new RegExp("&Z@%",'g');
+      text=text.replace(reg,"");
       var sp = text.split(" ");
       for(let i=0;i< sp.length;i++){
           if(MATCH_LIST.hasOwnProperty(sp[i])){
